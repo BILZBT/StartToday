@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+</head>
+<body class="single is-preload">
+    {%extends 'base.html'%}
+    {%block title%}SignUp-{%endblock%}
+    {%block body%}
+    
+
+     
+    <div class="container">
+        <h1>SignUp</h1>
+       {%with message=get_flashed_messages()%}
+            {%if message%}
+              {{message[0]}}
+              <a class="textup" href='{{(url_for('signin'))}}'>LogIn</a>
+            {%endif%}
+            {%if message=='Password is too short'%}
+               <a class='textup' href=''></a>
+            {%endif%}
+        {%endwith%}
+        <form method='post' action=''> 
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button href='/login' type="submit" class="button large ">Create Account</button>
+
+        </form>
+
+    </div>
+   
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin-Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Admin Dashboard</h1>
+    <br>
+    <h3>Welcome {{current_user.Name}}</h3>
+    <br>
+    
+
+ <p class="d-inline-flex gap-1">
+        
+        <a class="btn btn-primary"  href='/'>
+          Home
+        </a>       
+
+        <a class="btn btn-primary" data-bs-toggle="collapse" href='#post' role="button" aria-expanded="false" aria-controls="collapseExample">
+          Post
+        </a>
+        <a class="btn btn-primary" style="{{style}}" data-bs-toggle="collapse" href="#contact" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Contact
+          </a>
+        <a class="btn btn-primary"  href="/admin/edit-post/0" role="button">
+            Add Post
+        </a>
+        <a href='/logout' class="btn btn-danger" role='button'>
+          Log Out
+        </a>
+      </p>
+      
+      <div class="collapse" id="post">
+        <div class="card card-body">
+            <table class="table  table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">POST_ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {%for t in post%}
+                    
+                  <tr>
+                    <th scope="row">{{t.Post_ID}}</th>
+                    <td>{{t.Title}}</td>
+                    <td>
+                        <a href='/admin/edit-post/{{t.Post_ID}}'>
+                            <button type="button" class="btn btn-outline-success">Edit</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href='/admin/delete/{{t.Post_ID}}'>
+                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </a>
+                    </td>
+                  </tr>
+                    {%endfor%}
+                    
+                  
+                 
+                </tbody>
+              </table>
+        </div>
+      </div> 
+      
+      <div class="collapse" id="contact">
+        <div class="card card-body">
+
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">S.N</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {%for t in contact %}
+                        
+                        <tr>
+                          <th scope="row">{{t.SN}}</th>
+                          <td>{{t.Name}}</td>
+                          <td>{{t.Email}}</td>
+                          <td>
+                              <a href='/admin/edit-contact/{{t.SN}}'>
+                                  <button type="button" class="btn btn-outline-success">Edit</button>
+                              </a>
+                          </td>
+                          <td>
+                              <a href='/admin/delete/contacts/{{t.SN}}'>
+                                  <button type="button" class="btn btn-outline-danger">Delete</button>
+                              </a>
+                          </td>
+                        </tr>
+                        {%endfor%}
+                </tbody>
+              </table>
+      </div>
+
+      
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "parameters": {
+        "secret_key": "anuemabndj126sxb%fs5abG12ga^gws21hhsa",
+        "local_server": false,
+        "local_uri": "mysql://root@localhost/StartToday",
+        "production_uri": "postgresql://starttoday_user:I7u6orPyVyHL3DcfiPXWjGIPNtIP4Grc@dpg-cn6tgnljm4es73boharg-a.oregon-postgres.render.com/starttoday"
+
+    }
+}   

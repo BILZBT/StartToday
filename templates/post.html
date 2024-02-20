@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+	</head>
+	<body class="single is-preload">
+		{%extends 'base.html'%}
+		{%block title%}Post-{%endblock%}
+    	{%block body%}
+
+
+						<!-- Post -->
+						{%for x in post%}
+
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="/post/{{x.Slug}}">{{x.Title}}</a></h2>
+										<p>{{x.Location}}</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">{{x.Date}}</time>
+										<a href="#" class="author"><span class="name">{{x.Author}}</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src={{x.Image}} alt="" /></span>
+								<p>{{x.Sub_Title}}</p>
+								<p>{{x.Content}}</p>
+								<p>{{x.Content_1}}</p>
+								<footer>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon solid fa-heart">28</a></li>
+										
+									</ul>
+								</footer>
+							</article>
+						{%endfor%}
+
+					
+
+				
+
+			
+
+
+
+			
+        {%endblock%}
+	</body>
+</html>
