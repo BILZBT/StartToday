@@ -37,7 +37,7 @@ class Post(db.Model):
     Location=db.Column(db.String(30)) 
     Author=db.Column(db.String(50)) 
     Date=db.Column(db.String(50)) 
-    Image=db.Column(db.String(100)) 
+    Image=db.Column(db.String(1000)) 
     Content=db.Column(db.String(1000)) 
     Content_1=db.Column(db.String(1000))
     Slug=db.Column(db.String(500),unique=True)
