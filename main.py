@@ -86,7 +86,7 @@ def admin():
         admin_contact=Contact.query.filter_by().all()
         style="display: block;"    
     return render_template('admin/index.html', post=admin_post,contact=admin_contact, style=style)
-@app.route('/admin/edit-post/<string:Post_ID>', methods=['GET','POST'])
+@app.route('/admin/edit-post/<int:Post_ID>', methods=['GET','POST'])
 def admin_post(Post_ID):
     if request.method=='POST':
         title=request.form.get('title')
